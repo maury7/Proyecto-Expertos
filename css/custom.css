@@ -1,0 +1,90 @@
+#logoimg{
+    width: 10em;
+    margin-bottom: 15px;
+}
+
+.form-control{
+    
+}
+
+#formulariologin{
+    width: 600px;
+    margin: auto;
+    margin-top: 10em;
+    padding: 40px;
+    font-family: 'Google Sans',arial,sans-serif;
+    border-radius: 10px; 
+}
+#formulariocrear{
+    width: 600px;
+    margin: auto;
+    margin-top: 10em;
+    padding: 40px;
+    font-family: 'Google Sans',arial,sans-serif;
+    border-radius: 10px;
+}
+#namecc{
+    width: 250px; height: 10px;
+}
+
+#tabla{
+    margin-top: 0px;
+}
+
+#correocc{
+    width: 250px; height: 10px;
+}
+
+#apellidocc{
+    width: 250px; height: 10px;
+}
+
+.btn-primary{
+    color: #fff;
+    border-radius: 5px;
+    background: #4285f4;
+}
+
+
+#ayudabody{
+    color: #202124;
+    font-family: 'Google Sans',Roboto,sans-serif;
+}
+
+#btn-guardarcc{
+    color: #fff;
+    border-radius: 5px;
+    background: #4285f4;
+}
+
+#btn-guardar{
+    color: #fff;
+    border-radius: 5px;
+    background: #4285f4;
+}
+
+
+input[placeholder= "Password"], input[placeholder="Email or phone number"]{
+    width: 100%;
+    font-size: 18px;
+    padding: 10px 1rem;
+    border-radius: 5px;
+    border: 0px;
+    background-color: #333333;
+    color: grey;
+    margin: auto;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+#login{
+    background-color: rgba(12, 12, 12, 0.842);
+    color:rgb(255, 255, 255);
+    width: 300px;
+    padding: 50px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 300px
+    }
+        h1{
+            font-family: "titulos";
+        }

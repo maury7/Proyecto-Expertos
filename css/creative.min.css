@@ -40,3 +40,14 @@
 #letra-inicio{
     font-family: "open sans",arial,sans-serif !important;
 }
+
+#a-comprar{
+    background-color: #fff;
+    color:black;
+}
+#a-comprar:hover{
+    background-color: rgba(32, 196, 114, 0.699);
+    color:white;
+    transition: 1s background-color;
+    transition: 0.3s color;
+}
