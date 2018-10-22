@@ -178,7 +178,7 @@ img::-moz-selection {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 56px);
-  background-image: url("../img/header.jpg");
+  background-image: url("../img/intro-1024.jpg");
   background-position: center center;
   background-size: cover;
 }
@@ -304,7 +304,7 @@ header.masthead p {
 }
 
 .btn-primary {
-  background-color: #F05F40;
+  background-color: #2b2c2cad !important;
   border-color: #F05F40;
 }
 

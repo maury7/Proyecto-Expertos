@@ -16,16 +16,15 @@
 }
 
 .btn-primary {
-  background-color: $primary;
-  border-color: $primary;
+  background-color: blue;
+  border-color: white;
   &:hover,
   &:focus,
   &:active {
     color: $white;
-    background-color: darken($primary, 5%) !important;
   }
   &:active,
   &:focus {
-    box-shadow: 0 0 0 0.2rem rgba(240, 95, 64,.5) !important;
+    box-shadow: 0 0 0 0.2rem rgba(28, 109, 141, 0.5) !important;
   }
 }
