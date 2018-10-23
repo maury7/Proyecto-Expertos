@@ -14,15 +14,39 @@
 
         
 
-        <section id="login">
-                <h1>Sign In</h1>
-                <input class="form-control" type="text" placeholder="Email or phone number">
-                <input class="form-control" type="password" placeholder="Password">
-                <button class="btn" type="button" class="boton boton-rojo">Sign In</button>
-                <label><input type="checkbox"> Remember me</label>
-                <a href="#">Need help?</a>
-            </section>
-        </body>
+    <section>
+        <form class="form-control" id="formulario-login">
+
+                <img src="img/logo.png" id="logo-img">
+                <h2 style="font-size: 24px;color: #212121;">Iniciar sesión</h2>
+                <h3 style="font-size: 16px; margin-bottom: 4em;">Ir a Google Drive</h3>
+
+            <input type="email" class="form-control" id="email" placeholder="Correo electrónico o teléfono"style="width:100%; height: 30px; margin-bottom: 0px; border:0px;"><br>
+            <div class="valid-feedback">
+                    El campo esta correcto!    
+                  </div>
+                  <div class="invalid-feedback">
+                    Este campo esta incorrecto
+                  </div>
+            <input type="password" class="form-control" id="password" placeholder="Contraseña"style="width:100%; height: 30px; margin-bottom: 0px; border:0px;">
+            <div class="valid-feedback">
+                    El campo esta correcto!    
+                  </div>
+                  <div class="invalid-feedback">
+                    Este campo esta incorrecto
+                  </div><br>
+            <a href="#">¿Has olvidado tu correo electrónico?</a>
+
+            <p style="margin-top: 3em; font-size: 12px; margin-bottom: 30px;">¿No es tu ordenador? Usa el modo invitados para iniciar sesión de forma privada. <a href="#">Más información</a>
+            </p>
+
+           
+            
+            <a href="crearcuenta.html">Crear Cuenta</a>  <input class="btn btn-success" id="btn-guardar" type="button" value="Siguiente"   onclick="location.href='my-drive.html', validar(); ">
+            
+        </form>
+
+    </section>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
