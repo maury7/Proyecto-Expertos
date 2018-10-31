@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/custom.css">
-    <link rel="shorcut icon" href="img/favicon.ico">
+    <link rel="shorcut icon" href="img/icono.ico">
 
 </head>
 <body class="login">
@@ -17,9 +17,10 @@
     <section>
         <form class="form-control" id="formulario-login">
 
-                <img src="img/logo.png" id="logo-img">
+                <img class="logo-img" src="img/logo.png" >
                 <h2 style="font-size: 24px;color: #212121;">Iniciar sesión</h2>
-                <h3 style="font-size: 16px; margin-bottom: 4em;">Ir a Google Drive</h3>
+                <a href="index.html" style="color:black"><h3 style="font-size: 16px; margin-bottom: 4em;">Ir a Inicio</h3></a>
+                
 
             <input type="email" class="form-control" id="email" placeholder="Correo electrónico o teléfono"style="width:100%; height: 30px; margin-bottom: 0px; border:0px;"><br>
             <div class="valid-feedback">
@@ -35,14 +36,15 @@
                   <div class="invalid-feedback">
                     Este campo esta incorrecto
                   </div><br>
-            <a href="#">¿Has olvidado tu correo electrónico?</a>
+            <a style="color:black;" href="#">¿Has olvidado tu correo electrónico?</a>
 
             <p style="margin-top: 3em; font-size: 12px; margin-bottom: 30px;">¿No es tu ordenador? Usa el modo invitados para iniciar sesión de forma privada. <a href="#">Más información</a>
             </p>
 
            
             
-            <a href="crearcuenta.html">Crear Cuenta</a>  <input class="btn btn-success" id="btn-guardar" type="button" value="Siguiente"   onclick="location.href='my-drive.html', validar(); ">
+            <input class="btn btn-success" id="btn-guardar" type="button" value="Crear Cuenta">
+            <input class="btn btn-success" id="btn-guardar" type="button" value="Siguiente"  >
             
         </form>
 
