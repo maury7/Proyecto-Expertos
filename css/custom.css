@@ -129,3 +129,6 @@ a{
     background-color: #3c50038c;
     transition: 0.2s;
 }
+#letra-inicio{
+    color: #202124 !important;
+}
