@@ -1,0 +1,129 @@
+body {
+    padding-top: 5rem;
+    background-color:#EDF0F5;
+}
+.starter-template {
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+.bg-dark {
+    background-color: rgb(255, 255, 255)!important;
+}
+
+#formulario-login, .form-control, #formulario-registrar{
+    font-size: 0.75em;
+}
+
+.btn-primary{
+    background-color: #fa1f1fee;
+    color:rgb(255, 254, 254);
+    border: 0px;
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-left: auto;
+}
+
+.btn-primary:hover{
+    background-color: #c2331a;
+}
+
+.navbar{
+    padding-left: 127px;
+    padding-right: 465px;
+}
+
+#tabla-iconos td{
+    padding:15px;
+    font-size: 1em;
+}
+
+#formulario-signup .form-control{
+    margin:5px;
+}
+
+#texto-pequenio{
+    color: #777;
+    font-size: 11px;
+    width: 316px;
+}
+
+.btn-success{
+    background: linear-gradient(#67ae55, #578843);
+    background-color: #69a74e;
+    box-shadow: inset 0 1px 1px #a4e388;
+    border-color: #3b6e22 #3b6e22 #2c5115;
+    font-weight: bold;
+    width: 168px;
+    text-shadow: 1px 1px #2c5115;
+}
+
+.input-error{
+    border-color:red;
+    color:red;
+}
+
+
+.formulario{
+    
+    background-color: rgba(255, 255, 255, 0.267); 
+    border: 1px solid #dcdedf4b;
+    padding: 15px;
+    border-radius:5px;
+    margin-bottom: 10px;
+    margin-left: 400px;
+    margin-right: 400px;
+  }
+
+textarea{
+    border-color: #0300004f;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.btn-primary{
+    margin-top: 15px; 
+}
+
+
+#imagen-uno{
+width: 100%;
+margin-left: 1px;
+margin-right: 1px;
+
+}
+#tabla-uno{
+    border: none;
+}
+
+#publicar{
+    background-color: #74737318;
+ 
+}
+
+.propiedad{
+    width: 30%;
+    font-size: 18px;
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    border: 0px;
+    background-color: #ffffff;
+    color: grey;
+    margin-top:10px;
+    margin-bottom:10px;
+    box-sizing: border-box;
+
+}
+
+
+
+
+#form-Canales:hover{
+    background-color:rgba(129, 3, 3, 0.685);
+    color: white;
+    transition: 1s background-color;
+}
+
+
+#publicar{
+    
+}
