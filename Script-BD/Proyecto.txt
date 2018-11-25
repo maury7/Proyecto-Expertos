@@ -1,0 +1,65 @@
+Create database Sumachik
+
+CREATE TABLE Usuarios(
+			idUsuarios int Primary Key,
+            nombre Varchar(25),
+            apellido Varchar(25),
+            email Varchar(40),
+            password Varchar(25),
+			idTipo_usuarios int
+)
+
+CREATE TABLE Tipos_usuarios(
+			idTipo_usuarios int Primary Key,
+            nombre_tipo_usuario Varchar(25),
+            descripcion Varchar(25)
+)
+
+
+CREATE TABLE Planes(
+			idPlan int Primary Key,
+            nombre_plan Varchar(25),
+            descripcion Varchar(25)
+)
+
+CREATE TABLE Tipos_plan(
+			idTipo_plan int Primary Key,
+            nombre_tipo_plan Varchar(25),
+            descripcion Varchar(25)
+)
+
+
+CREATE TABLE Espacio_trabajo(
+			idEspacio_trabajo int Primary Key,
+            nombre_espacioTrabajo Varchar(25),
+            descripcion Varchar(25)
+)
+
+CREATE TABLE Espacio_trabajo_Planes(
+			idEspacio_trabajo int Primary Key,
+            nombre_espacioTrabajo Varchar(25),
+            descripcion Varchar(25)
+)
+
+
+CREATE TABLE Carpetas(
+			idCarpeta int Primary Key,
+            nombre_Carpeta Varchar(25),
+            descripcion Varchar(25)
+)
+
+CREATE TABLE Proyectos(
+			idProyecto int Primary Key,
+            nombre_Proyecto Varchar(25),
+            descripcion Varchar(25)
+)
+
+CREATE TABLE Archivos(
+			idProyecto int Primary Key,
+            nombre_Proyecto Varchar(25),
+            descripcion Varchar(25)
+)
+
+
+
+ALTER TABLE Usuarios ADD FOREIGN KEY (idTipo_usuarios) REFERENCES Tipo_usuarios (idTipo_usuarios)
