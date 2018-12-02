@@ -1,0 +1,9 @@
+CHAR( ) de ancho fijo desde 0 to 255 caracteres de longitud.
+VARCHAR( ) de 0 a 255 caracteres de longitud.
+TINYTEXT una cadena con longitud máxima de 255 caracteres.
+TEXT una cadena con longitud máxima de 65535 caracteres.
+BLOB una cadena con longitud máxima de 65535 caracteres.
+MEDIUMTEXT una cadena con longitud máxima de 16777215 caracteres.
+MEDIUMBLOB una cadena con longitud máxima de 16777215 caracteres.
+LONGTEXT una cadena con longitud máxima de 4294967295 caracteres.
+LONGBLOB una cadena con longitud máxima de 4294967295 caracteres.
