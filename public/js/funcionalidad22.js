@@ -1,3 +1,5 @@
+// todo esto debe estar en la base de datos
+
 var planes =[
   {
       nombre: "Plan Basico",
@@ -23,7 +25,7 @@ $(document).ready(function(){
 		
       for (var i=0;i<3;i++){
         $("#select-planes").append(        
-            `<option value="${planes[i].nombre}">${planes[i].nombre}</option>`);
+            `<option value="${i}">${planes[i].nombre}</option>`);
                 }
 		
 	
