@@ -11,18 +11,19 @@
     margin-top: 10em;
     padding: 40px;
     font-family: 'Google Sans',arial,sans-serif;
-    border-radius: 10px; 
+    border-radius: 10px;
+    background-color: rgba(5, 48, 59, 0.048); 
 }
 
 
-input[type= "Password"], input[type="email"]{
+input[type= "Password"], input[type="email"], [type="text"]{
     width: 100%;
     font-size: 20px;
     padding: 10px 10px 10px 10px;
     border-radius: 5px;
     border-style: solid;
     border: 0px;
-    background-color: #72717107;
+    background-color: #7172720e;
     color: grey;
     margin: auto;
     margin-bottom: 15px;

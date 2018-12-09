@@ -25,6 +25,28 @@
 	
 });
 
+$("#btn-login").click(function(){
+	var parametros=`email=${$("#email").val()}&contrasenia=${$("#password").val()}`;
+	console.log(parametros);
+	
+	$.ajax({
+        url:"/login",
+        method:"POST",
+        data:parametros,
+        dataType:"json",
+        success:function(respuesta){
+            console.log(respuesta);
+            if (respuesta.length == 1)
+                window.location.href = "/editor.html";
+            else 
+                alert("Credenciales invalidas");
+        },
+        error:function(error){
+            console.error(error);
+        }
+    });
+});
+
 
 
 $(document).ready(function(){

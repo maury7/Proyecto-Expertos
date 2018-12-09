@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Editor</title>
+  <style>
+    body {
+        margin:0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #container{
+        height: 100%;
+        width: auto;
+        white-space: nowrap;
+        overflow: hidden;
+        position: relative;
+    }
+
+    #htmleditor{
+        height: 100%;
+        min-height: 50vh;
+        width: 33%;
+        display: inline-block;
+    }
+    #csseditor{
+        height: 100%;
+        min-height: 50vh;
+        width: 33%;
+        display: inline-block;
+    }
+    #jseditor{
+        height: 100%;
+        min-height: 50vh;
+        width: 33%;
+        display: inline-block;
+    }
+
+    #result{
+        bottom: 0;
+        width: 100%;
+        height: 50%;
+    }
+   
+  </style>
+ 
+</head>
+<body>
+    
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <a class="navbar-brand" href="#"><img src="img/logo.png" style="width: 3em;"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+          
+                <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="planes.html">Planes</a>
+                    </li>
+                    
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >Buscar</button>
+                    
+                  </form>
+                </div>
+<div id="container">
+    <div id="elvis">
+    
+    </div>
+    <div id="htmleditor"> </div>
+    
+    <div id="csseditor"> </div>
+  
+    <div id="jseditor"> </div>
+    
+
+</div>
+<iframe id="result" frameBorder="0"></iframe>
+
+
+<script src="js/jquery.min.js"></script>
+
+<script src="src-noconflict/ace.js" type="text/javascript" charset="utf-8">  //esto pone numero de linea y inea en medio</script> 
+
+<script>
+    function update(){
+        var res = document.getElementById('result').contentWindow.document;
+        res.open();
+        res.write(eh.getValue());
+        res.write('<style>'+ec.getValue()+'</style>');
+        res.write('<script>'+ej.getValue()+'<\/SCRIPT>');
+        res.close();
+    }
+    function seteditor(){
+        window.eh = ace.edit("htmleditor");
+        eh.setTheme("ace/theme/monokai");
+        eh.session.setMode("ace/mode/html");
+        
+        window.ec = ace.edit("csseditor");
+        ec.setTheme("ace/theme/monokai");
+        ec.session.setMode("ace/mode/css");
+        
+        window.ej = ace.edit("jseditor");
+        ej.setTheme("ace/theme/monokai");
+        ej.session.setMode("ace/mode/javascript");
+        
+        eh.getSession().on('change', function(){
+        update();
+            });
+
+        ec.getSession().on('change', function(){
+        update();
+            });
+
+        ej.getSession().on('change', function(){
+        update();
+            });   
+    }
+    seteditor();
+    update();
+</script>
+
+<script>
+      /*  document.getElementById("elvis").innerHTML += 
+                  
+        `<p>que hay elvis</p> `;
+        */
+        console.log("hola");
+        </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+select B.cod_usuario,
+		B.nombre_usuario,
+        B.correo,
+        B.contrasena,
+        B.url_imagen_perfil
+        from contactos A 
+        inner join usuario B 
+        on(a.cod_usuario = b.cod_usuario)
