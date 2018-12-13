@@ -1,0 +1,30 @@
+// Bootstrap overrides for this template
+.text-primary {
+  color: $primary !important;
+}
+
+.btn {
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 300px;
+  @include sans-serif-font;
+}
+
+.btn-xl {
+  padding: 1rem 2rem;
+}
+
+.btn-primary {
+  background-color: blue;
+  border-color: white;
+  &:hover,
+  &:focus,
+  &:active {
+    color: $white;
+  }
+  &:active,
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(28, 109, 141, 0.5) !important;
+  }
+}
