@@ -44,7 +44,7 @@ CREATE TABLE Proyectos(
 			idProyecto int Primary Key,
             nombre_proyecto Varchar(25),
             descripcion Varchar(25),
-            idCarpeta int
+ CantidadProyectos int,           idCarpeta int
 )
 
 CREATE TABLE Archivos(
