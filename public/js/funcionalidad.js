@@ -46,7 +46,7 @@ function guardarUsuarios(){
 
     
     solicitud.onupgradeneeded = function(evento){
-        console.log("La base de datos se creara o se actualizara");
+        console.log("La base de datos (INDEXEDB) se creara o se actualizara");
         db = evento.target.result; 
         var objectStoreUsuarios = db.createObjectStore("Usuarios", {keyPath: "codigo", autoIncrement: true});
    

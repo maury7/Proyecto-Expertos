@@ -1,8 +1,55 @@
+$("#btn-facturar").click(function() {
+   
+	
+var parametross=`idTipoPlan=${$("#select-planes").val()}`;
+console.log(parametross);
 
-    $("#btn-registrar").click(function() {
+$.ajax({
+	url:`/registrar-plan/${$("#select-planes").val()}`,
+	dataType:"json",
+	method:"POST",
+	success:function(res){
+		console.log(res);
+		if (res.affectedRows==1){
+				
+				alert("excelente");
+		}else{
+			alert("Error al guardar mierda");
+		}
+	},
+	error:function(error){
+		console.log(error);
+	}
+	});	
+
+
+
+$.ajax({
+	url:"/mostrar-idplan",
+	dataType:"json",
+	method:"POST",
+	success:function(respuesta){
+		console.log(respuesta);
+		if (respuesta.length>=1){
+			$("#formulario-registrar").append(
+					
+				`<input type="hidden" value="${respuesta[0].idPlan}" id="idplan"><br>`);	
+				
+				alert("excelente imprimio");
+		}else{
+			alert("Error al guardar pueta");
+		}
+	},
+	error:function(error){
+		console.log(error);
+	}
+	});
+});
+
+$("#btn-registrar").click(function() {
         
         
-    var parametros=`nombre=${$("#nombre").val()}&apellido=${$("#apellido").val()}&email=${$("#email").val()}&password=${$("#password").val()}&idPlan=${$("#select-planes").val()}`;
+    var parametros=`nombre=${$("#nombre").val()}&apellido=${$("#apellido").val()}&email=${$("#email").val()}&password=${$("#password").val()}&idPlan=${$("#idplan").val()}`;
     console.log(parametros);
 	
 	$.ajax({
@@ -24,6 +71,7 @@
 	});
 	
 });
+
 
 $("#btn-login").click(function(){
 	var parametros=`email=${$("#email").val()}&contrasenia=${$("#password").val()}`;

@@ -1,5 +1,36 @@
 
-    $("#btn-registrar").click(function() {
+	
+	function modalCompartir(){
+		$("#modalComaprtir").modal("show");
+		//alert("holamodal");
+	
+		$.ajax({
+			url:"/usuarios",
+			method:"GET",
+			dataType:"json",
+			success:function(res){
+				console.log(res);
+				for (var i=0;i<res.length;i++){
+				$("#slc-usuarios").append(
+					
+					`<option value="${res[i].idUsuarios}">${res[i].nombre}</option>`
+				);}
+			}, 
+			error:function(error){
+				console.error(error);
+			}
+		});
+		
+	};
+	
+	
+	
+	
+	
+	
+	
+	
+	$("#compartir").click(function() {
         
         
     var parametros=`nombre=${$("#nombre").val()}&apellido=${$("#apellido").val()}&email=${$("#email").val()}&password=${$("#password").val()}&idPlan=${$("#select-planes").val()}`;
