@@ -1,6 +1,6 @@
 Create database Sumachik
 
-use Sumachik
+use Sumachikk
 
 CREATE TABLE Usuarios(
 			idUsuarios int Primary Key,
@@ -10,12 +10,6 @@ CREATE TABLE Usuarios(
             password Varchar(25),
 			idTipo_usuario int,
             idPlan int
-)
-
-CREATE TABLE Tipos_usuario(
-			idTipo_usuario int Primary Key,
-            nombre_tipo_usuario Varchar(25),
-            descripcion Varchar(25)
 )
 
 
@@ -33,6 +27,14 @@ CREATE TABLE Tipos_plan(
 )
 
 
+
+CREATE TABLE Compartir(
+			idUsuarioEmisor int Primary Key,
+            idUsuarioReceptor int Primary Key,
+			idCarpetaCompartida int Primary Key,
+)
+
+
 CREATE TABLE Carpetas(
 			idCarpeta int Primary Key,
             nombre_carpeta Varchar(25),
@@ -40,18 +42,12 @@ CREATE TABLE Carpetas(
             idPlan int
 )
 
-CREATE TABLE Proyectos(
-			idProyecto int Primary Key,
-            nombre_proyecto Varchar(25),
-            descripcion Varchar(25),
- CantidadProyectos int,           idCarpeta int
-)
 
 CREATE TABLE Archivos(
 			idArchivo int Primary Key,
             nombre_archivo Varchar(25),
             descripcion Varchar(25),
-            idProyecto int,
+            idCarpeta int,
             idTipo_archivo int
 )
 
@@ -72,9 +68,12 @@ ALTER TABLE Usuarios ADD FOREIGN KEY (idPlan) REFERENCES Planes (idPlan)
 ALTER TABLE Planes ADD FOREIGN KEY (idTipo_plan) REFERENCES Tipo_Plan (idTipo_plan)
 
 ALTER TABLE Carpetas ADD FOREIGN KEY (idPlan) REFERENCES Plan (idPlan)
+ALTER TABLE Compartir ADD FOREIGN KEY (idUsuarioEmisor) REFERENCES Usuarios (idUsuarios)
 
-ALTER TABLE Proyectos ADD FOREIGN KEY (idCarpeta) REFERENCES Carpetas (idCarpeta)
+ALTER TABLE Compartir ADD FOREIGN KEY (idUsuarioReceptor) REFERENCES Usuarios (idUsuarios)
 
-ALTER TABLE Archivos ADD FOREIGN KEY (idProyecto) REFERENCES Proyecto (idProyecto)
+ALTER TABLE Compartir ADD FOREIGN KEY (idCarpetaCompartida) REFERENCES Carpetas (idCarpeta)
+
+ALTER TABLE Archivos ADD FOREIGN KEY (idCarpeta) REFERENCES Proyecto (Carpetas)
 
 ALTER TABLE Archivos ADD FOREIGN KEY (idTipo_archivo) REFERENCES Tipo_archivos (idTipo_archivo)
