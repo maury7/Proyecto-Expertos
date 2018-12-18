@@ -8,7 +8,7 @@ var credenciales = {
     user:"root",
     password:"",
     port:"3306",
-    database: "Sumachik"
+    database: "Sumachikk"
 };
 
 
@@ -152,7 +152,7 @@ app.post("/mostrar-idplan",function(req,res){
 
 app.get("/planes",function(req,res){
     var conexion = mysql.createConnection(credenciales);   //se define la conexion
-    conexion.query("SELECT idTipo_plan, nombre_tipo_plan, precio_dolar, descripcion FROM Tipos_plan ORDER BY idTipo_plan ASC ",
+    conexion.query("SELECT idTipo_plan, nombre_tipo_plan, precio_dolar, descripcion FROM tipos_plan ORDER BY idTipo_plan ASC ",
         [],
         function(error, data, fields){
             if (error)
@@ -165,7 +165,7 @@ app.get("/planes",function(req,res){
 });
 app.get("/usuarios",function(req,res){
     var conexion = mysql.createConnection(credenciales);   //se define la conexion
-    conexion.query("SELECT 	idUsuarios, nombre FROM usuarios ORDER BY idUsuario ASC ",
+    conexion.query("SELECT idUsuarios, nombre FROM usuarios ORDER BY idUsuario ASC ",
         [],
         function(error, data, fields){
             if (error)
@@ -176,5 +176,20 @@ app.get("/usuarios",function(req,res){
         }
     );
 });
+
+app.get("/usuarios",function(req,res){
+    var conexion = mysql.createConnection(credenciales);   //se define la conexion
+    conexion.query("SELECT idUsuarios, nombre FROM usuarios ORDER BY idUsuario ASC ",
+        [],
+        function(error, data, fields){
+            if (error)
+                res.send(error);    
+            else
+                res.send(data);
+            res.end();
+        }
+    );
+});
+
 
 app.listen(8111, function(){ console.log("Servidorcito iniciado");});
