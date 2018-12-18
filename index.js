@@ -21,6 +21,7 @@ app.use(session({secret:"ASDFE$%#%",resave:true, saveUninitialized:true}));
 
 //Verificar si existe una variable de sesion para poner publica la carpeta public plan
 
+var publicPlan1 = express.static("public-plan1");
 var publicPlan2 = express.static("public-plan2");
 var publicPlan3 = express.static("public-plan3");
 
@@ -28,7 +29,9 @@ app.use( //seria por tipo de pla, consulta entre usuario, plam, y tipo plan,
     function(req,res,next){
         if (req.session.email){
             //Significa que el usuario si esta logueado
-            if (req.session.idTipoPlan == 2)
+            if (req.session.idTipoPlan == 1)
+                publicPlan1(req,res,next);
+            else if (req.session.idTipoPlan == 2)
                 publicPlan2(req,res,next);
             else if (req.session.idTipoPlan == 3)
                 publicPlan3(req,res,next);
@@ -42,13 +45,6 @@ app.use( //seria por tipo de pla, consulta entre usuario, plam, y tipo plan,
 
 
 ///Para agregar seguridad a una ruta especifica:
-
-function verificarAutenticacion(req, res, next){
-	if(req.session.correo)
-		return next();
-	else
-		res.send("ERROR, ACCESO NO AUTORIZADO");
-}
 
 
 app.post("/login",function(req, res){

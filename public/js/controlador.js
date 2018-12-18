@@ -12,9 +12,9 @@ $.ajax({
 		console.log(res);
 		if (res.affectedRows==1){
 				
-				alert("excelente");
+			//	alert("excelente");
 		}else{
-			alert("Error al guardar mierda");
+		//	alert("Error al guardar ");
 		}
 	},
 	error:function(error){
@@ -35,9 +35,9 @@ $.ajax({
 					
 				`<input type="hidden" value="${respuesta[0].idPlan}" id="idplan"><br>`);	
 				
-				alert("excelente imprimio");
+			//	alert("excelente imprimio");
 		}else{
-			alert("Error al guardar pueta");
+		//	alert("Error al guardar ");
 		}
 	},
 	error:function(error){
@@ -60,9 +60,9 @@ $("#btn-registrar").click(function() {
 		success:function(res){
 			console.log(res);
 			if (res.affectedRows==1){
-				alert("excelente");
+		//		alert("excelente");
 			}else{
-				alert("Error al guardar mensaje");
+		//		alert("Error al guardar mensaje");
 			}
 		},
 		error:function(error){
@@ -86,8 +86,8 @@ $("#btn-login").click(function(){
             console.log(respuesta);
             if (respuesta.length == 1)
                 window.location.href = "/editor.html";
-            else 
-                alert("Credenciales invalidas");
+          //  else 
+         //       alert("Credenciales invalidas");
         },
         error:function(error){
             console.error(error);
