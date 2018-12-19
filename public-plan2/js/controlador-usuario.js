@@ -8,7 +8,7 @@ $.ajax({
 	dataType:"json",
 	success:function(respuesta){
 		console.log(respuesta);
-		$("#formulario-actualizar").append(
+		$("#formulario-registrar").append(
 			`<input type="hidden" class="form-control" placeholder="Usuario" value="${respuesta}" id="valor-usuario-perfil">`
 		); 
 		},
@@ -20,23 +20,21 @@ $.ajax({
 });
 
 $("#btn-actualizar").click(function() {
-    var parametros=`nombre=${$("#nombre").text()}&apellido=${$("#apellido").text()}&email=${$("#email").text()}&password=${$("#password").val()}&idUsuario=${$("#valor-usuario-perfil").val()}`;
+    var parametros=`nombre=${$("#nombreU").val()}&apellido=${$("#apellidoU").val()}&email=${$("#emailU").val()}&password=${$("#passwordU").val()}&idUsuarios=${$("#valor-usuario-perfil").val()}`;
     console.log(parametros);
-    /*
+    
     $.ajax({
-        url:`/actualizar-usuario/${$("#valor-usuario-perfil").text()}`,
+        url:"/actualizar-usuario",
         method:"POST",
         dataType:"json",
+        data:parametros,
         success:function(respuesta){
             console.log(respuesta);
-            $("#formulario-plan2").append(
-                `<input type="hidden" class="form-control" placeholder="Usuario" value="${respuesta}" id="valor-usuario">`
-            ); 
             },
         error:function(error){
             console.error(error);
         }
     });
     
-*/
+
 });

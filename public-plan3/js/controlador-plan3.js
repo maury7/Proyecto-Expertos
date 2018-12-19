@@ -78,11 +78,11 @@ $.ajax({
 			dataType:"json",
 			success:function(res){
 				console.log(res);
-				if(res.affectedRows=1)
-					alert("Excelente");
+			//	if(res.affectedRows=1)
+			//		alert("Excelente");
 				
-				else
-					alert("maloooo");
+			//	else
+			//		alert("maloooo");
 				
 			}, 
 			error:function(error){
@@ -106,11 +106,11 @@ $.ajax({
 			method:"POST",
 			success:function(res){
 				console.log(res);
-				if (res.affectedRows==1){
-					alert("excelente");
-				}else{
-					alert("Error al guardar mensaje");
-				}
+			//	if (res.affectedRows==1){
+			//		alert("excelente");
+			//	}else{
+			//		alert("Error al guardar mensaje");
+			//	}
 			},
 			error:function(error){
 				console.log(error);
@@ -135,11 +135,11 @@ $.ajax({
 		method:"POST",
 		success:function(res){
 			console.log(res);
-			if (res.affectedRows==1){
-				alert("excelente ");
-			}else{
-				alert("Error al guardar mensaje");
-			}
+		//	if (res.affectedRows==1){
+		//		alert("excelente ");
+		//	}else{
+		//		alert("Error al guardar mensaje");
+		//	}
 		},
 		error:function(error){
 			console.log(error);
@@ -162,8 +162,10 @@ $("#btn-login").click(function(){
             if (respuesta.length == 1)
                 window.location.href = "/editor.html";
             else 
-                alert("Credenciales invalidas");
-        },
+         //       alert("Credenciales invalidas");
+		 window.location.href = "/login.html";
+            
+		},
         error:function(error){
             console.error(error);
         }
@@ -224,11 +226,11 @@ $("#guargar-codigo").click(function() {
 		dataType:"json",
 		success:function(res){
 			console.log(res);
-			if(res.affectedRows=1)
-				alert("Excelente");
+		//	if(res.affectedRows=1)
+		//		alert("Excelente");
 			
-			else
-				alert("maloooo");
+		//	else
+		//		alert("maloooo");
 			
 		}, 
 		error:function(error){

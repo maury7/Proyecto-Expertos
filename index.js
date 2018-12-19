@@ -306,7 +306,7 @@ app.post("/guardar-codigo",function(req,res){
         }
     );
 });
-app.post("//actualizar-usuario/:idUsuario",function(req,res){
+app.post("/actualizar-usuario",function(req,res){
     var conexion = mysql.createConnection(credenciales);   //se define la conexion
     conexion.query("UPDATE  usuarios  SET  nombre = ?, apellido = ? , email = ?, password = ?  WHERE idUsuarios=? ",
         [   
@@ -315,7 +315,7 @@ app.post("//actualizar-usuario/:idUsuario",function(req,res){
             req.body.apellido,
             req.body.email,
             req.body.password,
-            req.body.idUsuarios,
+            req.body.idUsuarios
         ],
         function(error, data, fields){
             if (error)
