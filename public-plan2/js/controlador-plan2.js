@@ -191,7 +191,7 @@ $.ajax({
 function cargarCarpetas(){
 	
 $.ajax({
-	url:`/carpetas/${$("#valor-usuario").val()}`,
+	url:`/carpetas2/${$("#valor-usuario").val()}`,
 	method:"POST",
 	dataType:"json",
 	success:function(respuesta){
@@ -207,4 +207,31 @@ $.ajax({
 	}
 	});
 };
+
+
+$("#guargar-codigo").click(function() {
+	var parametros=`codHTML=${$("#htmleditor").text()}&codCSS=${$("#csseditor").text()}&codJS=${$("#jseditor").text()}&idCarpeta=${$("#slc-carpetasI").val()}`;
+	console.log(parametros);
+
+	$.ajax({
+		url:"/guargar-codigo",
+		method:"POST",
+		data:parametros,
+		dataType:"json",
+		success:function(res){
+			console.log(res);
+			if(res.affectedRows=1)
+				alert("Excelente");
+			
+			else
+				alert("maloooo");
+			
+		}, 
+		error:function(error){
+			console.error(error);
+		}
+	});
+
+});
+
 

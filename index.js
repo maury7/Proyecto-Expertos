@@ -175,20 +175,6 @@ app.get("/usuarios",function(req,res){
     );
 });
 
-app.get("/guardar",function(req,res){
-    var conexion = mysql.createConnection(credenciales);   //se define la conexion
-    conexion.query("SELECT idUsuarios, nombre FROM usuarios ORDER BY idUsuario ASC ",
-        [],
-        function(error, data, fields){
-            if (error)
-                res.send(error);    
-            else
-                res.send(data);
-            res.end();
-        }
-    );
-});
-
 
 
 app.get("/carpetas",function(req,res){
@@ -262,9 +248,9 @@ app.post("/crear-carpeta-nueva",function(req,res){
     );
 });
 
-app.post("/carpetas/:idUsuario",function(req,res){
+app.post("/carpetas2/:idUsuario",function(req,res){
     var conexion = mysql.createConnection(credenciales);   //se define la conexion
-    conexion.query(`SELECT a.nombre, c.idCarpeta, c.nombre_carpeta FROM usuarios as a
+    conexion.query(`SELECT c.idCarpeta, c.nombre_carpeta FROM usuarios as a
     INNER join planes as b
     on(a.idPlan=b.idPlan)
     inner join carpetas as c
@@ -302,5 +288,23 @@ app.post("/compartir",function(req,res){
     );
 });
 
+
+app.post("/guardar-codigo",function(req,res){
+    var conexion = mysql.createConnection(credenciales);   //se define la conexion
+    conexion.query("INSERT INTO  archivos (ArchivoHTML ,  ArchivoCSS ,  ArchivoJS ,  idCarpeta ) VALUES ( ?, ? ,? ,?)",
+        [   req.body.codHTML,
+            req.body.codCSS,
+            req.body.codJS,
+            req.body.idCarpeta   
+        ],
+        function(error, data, fields){
+            if (error)
+                res.send(error);    
+            else
+                res.send(data);
+            res.end();
+        }
+    );
+});
 
 app.listen(8111, function(){ console.log("Servidorcito iniciado");});

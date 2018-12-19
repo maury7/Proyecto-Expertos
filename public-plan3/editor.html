@@ -80,30 +80,32 @@
               <li class="nav-item active">
                   <a class="nav-link" href="index.html">Inicio <span class="sr-only">(current)</span></a>
                 </li>      
-          <li class="nav-item">
-            <a class="nav-link" href="editor-lenjuages.html">Editor de lenguajes </a>
-          </li>
-          <li class="nav-item active">
-              <select  id="slc-planes" class="form-control" style="padding: 0.280rem 1.05rem; background-color:rgba(30, 92, 185, 0.87); color:white;">
-                  <option selected value="1">Carpetas</option> 
-                  <option value="1">Carpeta1</option>
-                  <option value="1">Carpeta2</option>
-          </select>
-              </li>
-          <li class="nav-item">
-          </li>
           
-        </ul>
-        <form class="my-2 my-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" onclick="cargarCarpetas();">Cargar Carpetas <span class="sr-only">(current)</span></a>
+                  </li>
+          <li class="nav-item">
+                  <select  id="slc-carpetasI" class="form-control" style="padding: 0.280rem 1.05rem; background-color:rgba(30, 92, 185, 0.87); color:white;">
+                      <option selected >Seleccionar carpeta</option> 
+                     
+              </select>
+              </li>
+          </ul>
+        <form class="my-2 my-lg-0" id="formulario-plan2">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" style="border-radius: 1.55rem;" 
+            id="guargar-carpetass" onclick=modalCarpetas();>Crear Carpetas</button>
+            
+          
           <button class="btn btn-outline-success my-2 my-sm-0" type="button" style="border-radius: 1.55rem;" 
-          onclick=Ejecutar();>Ejecutar</button>
-         
+            id="compartir" onclick=modalCompartir();>Compartir</button>
+           
+           
+          <button class="btn btn-outline-success my-2 my-sm-0" type="button" style="border-radius: 1.55rem;" 
+          onclick=Ejecutar(); >Ejecutar</button>
           
           <button class="btn btn-outline-success my-2 my-sm-0" type="button" style="border-radius: 1.55rem;" 
           id="guargar-codigo">Guardar</button>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="button" style="border-radius: 1.55rem;" 
-          id="compartir" onclick=modalCompartir();>Compartir</button>
-        
+         
         </form>
       </div>
     </nav><br><br><br><br>
@@ -112,16 +114,16 @@
       <div class="container" id="edittor">
         
         
-            <div class="col-lg-4 col-md-4 col-xs-12" id="htmleditor">
+            <div class="col-lg-4 col-md-2 col-xs-12" id="htmleditor">
              </div>
             
     
             
-            <div class="col-lg-4 col-md-4 col-xs-12" id="csseditor"> 
+            <div class="col-lg-4 col-md-2 col-xs-12" id="csseditor"> 
                 
           </div>
           
-            <div class="col-lg-4 col-md-4 col-xs-12" id="jseditor"> 
+            <div class="col-lg-4 col-md-2 col-xs-12" id="jseditor"> 
           </div>
             </div>
         </div>
@@ -189,10 +191,10 @@
         
         <div class="modal-body">
           
-          <h3>seleccione el usuario con quien desea compartir</h3><br>
+          <h3>Seleccione el usuario con quien desea compartir</h3><br>
           <select  id="slc-usuarios" class="form-control" ></select><br>
           
-          <input type="text" class="form-control" placeholder="codigo-contacto" id="codigoContacto"><br>
+         
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           <button type="button" class="btn btn-success" id="compartir-carpeta">Compartir</button>
@@ -205,6 +207,43 @@
   
     
    
+  <div class="modal fade" id="modalCarpetas" tabindex="-1" role="dialog" aria-labelledby="modalCarpetasLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          
+            
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalCarpetasLabel"></h5>
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          
+          <div class="modal-body" id="guardar-carpetas">
+            
+            <h3>Crear Carpetas</h3><br>
+            <select  id="slc-carpetas" class="form-control" >
+            <option selected >Seleccione carpeta Principal</option></select><br> 
+            <input type="text" class="form-control" placeholder="Nombre Carpeta" id="nombreCarpeta"><br>
+            
+              <div class="modal-footer" id="carpeta">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button><br>
+              
+                <button type="button" class="btn btn-success" id="crear-carpeta">Crear Carpeta</button>
+              
+                  
+                  <button type="button" class="btn btn-success" id="crear-nueva-carpeta">Crear New Carpeta</button>
+                </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      
+     
+
+    
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/controlador-plan2.js"></script>
