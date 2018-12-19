@@ -81,11 +81,9 @@ app.get("/cerrar-sesion",function(req,res){
     res.end();
 });
 
-app.get("/obtener-session",function(req,res){
-    res.send("Codigo Usuario: " + req.session.idUsuarios+
-            ", Correo: " + req.session.email +
-            ", Tipo Usuario: " + req.session.idTipoPlan
-    );
+
+app.get("/obtener-session-codigo",function(req,res){
+    res.send(String(req.session.idUsuarios));
     res.end();
 });
 
@@ -165,6 +163,20 @@ app.get("/planes",function(req,res){
 });
 app.get("/usuarios",function(req,res){
     var conexion = mysql.createConnection(credenciales);   //se define la conexion
+    conexion.query("SELECT idUsuarios, nombre FROM usuarios ORDER BY idUsuarios ASC ",
+        [],
+        function(error, data, fields){
+            if (error)
+                res.send(error);    
+            else
+                res.send(data);
+            res.end();
+        }
+    );
+});
+
+app.get("/guardar",function(req,res){
+    var conexion = mysql.createConnection(credenciales);   //se define la conexion
     conexion.query("SELECT idUsuarios, nombre FROM usuarios ORDER BY idUsuario ASC ",
         [],
         function(error, data, fields){
@@ -177,10 +189,109 @@ app.get("/usuarios",function(req,res){
     );
 });
 
-app.get("/usuarios",function(req,res){
+
+
+app.get("/carpetas",function(req,res){
     var conexion = mysql.createConnection(credenciales);   //se define la conexion
-    conexion.query("SELECT idUsuarios, nombre FROM usuarios ORDER BY idUsuario ASC ",
+    conexion.query("SELECT idCarpeta, nombre_carpeta FROM carpetas ",
         [],
+        function(error, data, fields){
+            if (error)
+                res.send(error);    
+            else
+                res.send(data);
+            res.end();
+        }
+    );
+});
+
+
+
+
+
+app.post("/mostrar-idPlan2/:idUsuario",function(req,res){
+    var conexion = mysql.createConnection(credenciales);   //se define la conexion
+    conexion.query(`SELECT idPlan FROM usuarios 
+       where idUsuarios=?`,
+        [   
+            req.params.idUsuario
+        ],
+        function(error, data, fields){
+            if (error)
+                res.send(error);    
+            else
+                res.send(data);
+            res.end();
+        }
+    );
+});
+
+
+app.post("/crear-carpeta",function(req,res){
+    var conexion = mysql.createConnection(credenciales);   //se define la conexion
+    conexion.query("INSERT INTO  carpetas (nombre_carpeta ,  idPlan ,  idCarpetaP ) VALUES ( ?, ?, ?)",
+        [   
+            req.body.nombre_carpeta,
+            req.body.idPlan,
+            req.body.idCarpetaP
+        ],
+        function(error, data, fields){
+            if (error)
+                res.send(error);    
+            else
+                res.send(data);
+            res.end();
+        }
+    );
+});
+
+app.post("/crear-carpeta-nueva",function(req,res){
+    var conexion = mysql.createConnection(credenciales);   //se define la conexion
+    conexion.query("INSERT INTO  carpetas (nombre_carpeta ,  idPlan ) VALUES ( ?, ?)",
+        [   
+            req.body.nombre_carpeta,
+            req.body.idPlan
+        ],
+        function(error, data, fields){
+            if (error)
+                res.send(error);    
+            else
+                res.send(data);
+            res.end();
+        }
+    );
+});
+
+app.post("/carpetas/:idUsuario",function(req,res){
+    var conexion = mysql.createConnection(credenciales);   //se define la conexion
+    conexion.query(`SELECT a.nombre, c.idCarpeta, c.nombre_carpeta FROM usuarios as a
+    INNER join planes as b
+    on(a.idPlan=b.idPlan)
+    inner join carpetas as c
+    on(b.idplan=c.idPlan) 
+    where idUsuarios=?`,
+        [   
+            req.params.idUsuario
+        ],
+        function(error, data, fields){
+            if (error)
+                res.send(error);    
+            else
+                res.send(data);
+            res.end();
+        }
+    );
+});
+
+
+app.post("/compartir",function(req,res){
+    var conexion = mysql.createConnection(credenciales);   //se define la conexion
+    conexion.query("INSERT INTO compartir(idUsuarioEmisor, idUsuarioReceptor, idCarpetaCompartida) VALUES (?,?,?)",
+        [   
+            req.body.usuarioEmisor,
+            req.body.usuarioReceptor,
+            req.body.carpetaCompartida
+        ],
         function(error, data, fields){
             if (error)
                 res.send(error);    
