@@ -177,7 +177,7 @@ app.get("/usuarios",function(req,res){
 
 
 
-app.get("/carpetas",function(req,res){
+app.get("",function(req,res){
     var conexion = mysql.createConnection(credenciales);   //se define la conexion
     conexion.query("SELECT idCarpeta, nombre_carpeta FROM carpetas ",
         [],
@@ -248,7 +248,7 @@ app.post("/crear-carpeta-nueva",function(req,res){
     );
 });
 
-app.post("/carpetas2/:idUsuario",function(req,res){
+app.post("/carpetas/:idUsuario",function(req,res){
     var conexion = mysql.createConnection(credenciales);   //se define la conexion
     conexion.query(`SELECT c.idCarpeta, c.nombre_carpeta FROM usuarios as a
     INNER join planes as b
@@ -306,5 +306,26 @@ app.post("/guardar-codigo",function(req,res){
         }
     );
 });
+app.post("//actualizar-usuario/:idUsuario",function(req,res){
+    var conexion = mysql.createConnection(credenciales);   //se define la conexion
+    conexion.query("UPDATE  usuarios  SET  nombre = ?, apellido = ? , email = ?, password = ?  WHERE idUsuarios=? ",
+        [   
+            
+            req.body.nombre,
+            req.body.apellido,
+            req.body.email,
+            req.body.password,
+            req.body.idUsuarios,
+        ],
+        function(error, data, fields){
+            if (error)
+                res.send(error);    
+            else
+                res.send(data);
+            res.end();
+        }
+    );
+});
+
 
 app.listen(8111, function(){ console.log("Servidorcito iniciado");});

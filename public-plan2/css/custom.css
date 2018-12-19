@@ -5,7 +5,18 @@
 
 
 
-#formulario-login, #formulario-registrar{
+#formulario-login, #formulario-registrar, #formulario-actualizar{
+    width: 600px;
+    margin: auto;
+    margin-top: 10em;
+    padding: 40px;
+    font-family: 'Google Sans',arial,sans-serif;
+    border-radius: 10px;
+    background-color: rgba(5, 48, 59, 0.048); 
+}
+
+
+#formulario-actualizar{
     width: 600px;
     margin: auto;
     margin-top: 10em;

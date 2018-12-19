@@ -45,27 +45,29 @@
 		
 		
 		$.ajax({
-			url:"/carpetas",
-			method:"GET",
+			url:`/carpetas/${$("#valor-usuario").val()}`,
+			method:"POST",
 			dataType:"json",
-			success:function(res){
-				console.log(res);
-				for (var i=0;i<res.length;i++){
-				$("#slc-carpetas").append(
-					
-					`<option value="${res[i].idCarpeta}">${res[i].nombre_carpeta}</option>`
-				);}
-			}, 
+			success:function(respuesta){
+				console.log(respuesta);
+				$("#slc-carpetas").html("");
+				for (var i=0;i<respuesta.length;i++){
+					$("#slc-carpetas").append(
+						
+						`<option value="${respuesta[i].idCarpeta}">${respuesta[i].nombre_carpeta}</option>`
+					);}
+				},
 			error:function(error){
 				console.error(error);
 			}
-		});
-	};
+			});
+		};
 	
 	
 	
 	
 	$("#crear-carpeta").click(function() {
+		
 		var parametros=`nombre_carpeta=${$("#nombreCarpeta").val()}&idPlan=${$("#valor-plan").val()}&idCarpetaP=${$("#slc-carpetas").val()}`;
     	console.log(parametros);
 	
@@ -191,11 +193,13 @@ $.ajax({
 function cargarCarpetas(){
 	
 $.ajax({
-	url:`/carpetas2/${$("#valor-usuario").val()}`,
+	url:`/carpetas/${$("#valor-usuario").val()}`,
 	method:"POST",
 	dataType:"json",
 	success:function(respuesta){
 		console.log(respuesta);
+		$("#slc-carpetasI").html("");
+		
 		for (var i=0;i<respuesta.length;i++){
 			$("#slc-carpetasI").append(
 				
