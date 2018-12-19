@@ -33,7 +33,7 @@ $.ajax({
 		if (respuesta.length>=1){
 			$("#formulario-registrar").append(
 					
-				`<input type="text" value="${respuesta[0].idPlan}" id="idplan"><br>`);	
+				`<input type="hidden" value="${respuesta[0].idPlan}" id="idplan"><br>`);	
 				
 			//	alert("excelente imprimio");
 		}else{
